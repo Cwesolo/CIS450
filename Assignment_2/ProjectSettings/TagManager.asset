@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pickup
   - Simulator
+  - UI
   layers:
   - Default
   - TransparentFX

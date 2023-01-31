@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickup: {fileID: 0}
-  simulator: {fileID: 4179540384550892417, guid: 6a7f79cd13780ee4ab0323912ed01073, type: 3}
+  simulator: {fileID: 0}
+  mat: {fileID: 2100000, guid: 46082ca5b9df9f04cb31d7bacfbf0ea9, type: 2}
 --- !u!65 &1465792148160363817
 BoxCollider:
   m_ObjectHideFlags: 0

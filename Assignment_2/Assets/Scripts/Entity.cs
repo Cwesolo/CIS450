@@ -1,3 +1,10 @@
+/*
+ * Chandler Wesoloski
+ * Entity.cs
+ * Assignment 2
+ * Contains the logic for Entities
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +22,7 @@ public class Entity : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
-        changePickupScoreTime = startTime + 3;
+        changePickupScoreTime = startTime + 2;
         despawnTime = startTime + 10;
         pickup = gameObject.AddComponent<MultiPointPickup>();
         simulator = GameObject.FindGameObjectWithTag("Simulator").GetComponent<Simulator>();
@@ -31,7 +38,7 @@ public class Entity : MonoBehaviour
             pickup = gameObject.AddComponent<SinglePoint_Pickup>();
         }
 
-        if(Time.time == despawnTime)
+        if (Time.time == despawnTime)
         {
             Debug.Log("destroying");
             Destroy(this.gameObject);
