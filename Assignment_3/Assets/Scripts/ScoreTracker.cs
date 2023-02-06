@@ -1,3 +1,10 @@
+/*
+ * Chandler Wesoloski
+ * ScoreTracker.cs
+ * Assignment 3
+ * Updates score text and win text
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;

@@ -1,3 +1,10 @@
+/*
+ * Chandler Wesoloski
+ * PlayerController.cs
+ * Assignment 3
+ * Controls player movement and score
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
