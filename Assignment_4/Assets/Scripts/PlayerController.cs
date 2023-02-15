@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Entity
+public class PlayerController : MonoBehaviour
 {
-    Rigidbody rb;
+    public PlayerBonus bonus;
 
-    private float horizontalInput;
-    private float verticalInput;
+    private Rigidbody rb;
+    private float moveVertical;
+    private float moveHorizontal;
+    private int score;
+
+    private void Awake()
+    {
+        bonus = new PlayerBonus(); 
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -18,20 +25,42 @@ public class PlayerController : Entity
     // Update is called once per frame
     void Update()
     {
-        
+        MovePlayer();
     }
 
-    protected override void IncrementScore()
+    private void MovePlayer()
     {
-        throw new System.NotImplementedException();
+        moveHorizontal = Input.GetAxis("Horizontal");
+        moveVertical = Input.GetAxis("Vertical");
+
+        transform.Translate(Vector3.forward * moveVertical * bonus.speed * Time.deltaTime);
+        transform.Translate(Vector3.right * moveHorizontal * bonus.speed * Time.deltaTime);
+
+       // Debug.Log(bonus.speed);
     }
 
-    protected override void MovePlayer()
+    private void OnCollisionEnter(Collision col)
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        if (col.gameObject.CompareTag("SpeedBonus"))
+        {
+            bonus = new SpeedBonus(bonus);
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.CompareTag("ScoreBonus"))
+        {
+            bonus = new ScoreBonus(bonus);
+            Destroy(col.gameObject);
+        }
+        else if(col.gameObject.CompareTag("Pickup"))
+        {
+            bonus.score++;
+            Destroy(col.gameObject);
+            score = bonus.score;
+        }
+    }
 
-        transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed * verticalInput);
-        transform.Translate(Vector3.right * Time.deltaTime * moveSpeed * horizontalInput);
+    public int Getscore()
+    {
+        return score;
     }
 }
