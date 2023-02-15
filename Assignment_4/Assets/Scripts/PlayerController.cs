@@ -6,8 +6,8 @@ public class PlayerController : Entity
 {
     Rigidbody rb;
 
-    private float moveVertical;
-    private float moveHorizontal;
+    private float horizontalInput;
+    private float verticalInput;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,10 @@ public class PlayerController : Entity
 
     protected override void MovePlayer()
     {
-        
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
+
+        transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed * verticalInput);
+        transform.Translate(Vector3.right * Time.deltaTime * moveSpeed * horizontalInput);
     }
 }
