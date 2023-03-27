@@ -4,17 +4,17 @@ using UnityEngine;
 
 public abstract class Pickup : MonoBehaviour
 {
-    private void OnCollisionEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             CollectPickup();
         }
     }
 
-    private void CollectPickup()
+    protected void CollectPickup()
     {
-        giveScore();
+        GiveScore();
 
         DestroyPickup();
     }
@@ -24,5 +24,5 @@ public abstract class Pickup : MonoBehaviour
         Destroy(this);
     }
 
-    public abstract void giveScore();
+    public abstract void GiveScore();
 }

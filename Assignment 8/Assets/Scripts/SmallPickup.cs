@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class SmallPickup : Pickup
 {
-    int pointsGiven = 1;
+    private int pointsGiven = 1;
 
-    public override void giveScore()
+    public UIScript uIScript;
+
+    private void Start()
+    {
+        uIScript = GameObject.FindGameObjectWithTag("UI").GetComponent<UIScript>();
+    }
+
+    public override void GiveScore()
     {
 
     }

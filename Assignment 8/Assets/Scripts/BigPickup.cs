@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class BigPickup : Pickup
 {
-    public override void giveScore()
+    private int pointsGiven = 3;
+    public UIScript uIScript;
+
+    private void Start()
+    {
+        uIScript = GameObject.FindGameObjectWithTag("UI").GetComponent<UIScript>();
+    }
+
+
+
+    public override void GiveScore()
     {
         
     }
