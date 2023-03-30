@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Pickup : MonoBehaviour
 {
-    protected void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -21,8 +21,12 @@ public abstract class Pickup : MonoBehaviour
 
     private void DestroyPickup()
     {
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 
     public abstract void GiveScore();
+
+    public virtual void RandomScore()
+    {
+    }
 }

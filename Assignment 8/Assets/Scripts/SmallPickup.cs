@@ -15,6 +15,6 @@ public class SmallPickup : Pickup
 
     public override void GiveScore()
     {
-
+        uIScript.GetScore(pointsGiven);
     }
 }
