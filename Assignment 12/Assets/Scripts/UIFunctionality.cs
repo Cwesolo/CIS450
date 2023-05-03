@@ -53,6 +53,10 @@ public class UIFunctionality : MonoBehaviour
 
     public void DoAll()
     {
+        DamagePlayer();
+        DamagePlayer();
+        DamagePlayer();
+
         AbilitiesContainer.use(Player, Enemy, 2, 2);
         text.text = "Healing and damaging all at once";
     }
